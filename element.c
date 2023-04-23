@@ -112,3 +112,18 @@ int p_percent(__attribute__((unused)) va_list args)
 	_putchar('%');
 	return (1);
 }
+/**
+ * p_integer - Prints integer numbers
+ *
+ * @args: argument list containing integer to be printed
+ *
+ * Return: Number of digits printed
+ */
+int p_integer(va_list args)
+{
+	int n;
+
+	n = print_number(args);
+	return (n);
+
+}
