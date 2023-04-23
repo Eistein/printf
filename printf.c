@@ -1,5 +1,7 @@
 #include "main.h"
 #include <stdint.h>
+#include <stdio.h>
+#include <stdarg.h>
 /**
  * _printf - produces output according to a format
  *
@@ -14,8 +16,6 @@ int _printf(const char *format, ...)
 		{"c", p_char},
 		{"s", p_string},
 		{"%", p_percent},
-		{"d", p_integer},
-		{"i", p_integer},
 		{NULL, NULL}
 	};
 	va_list args;
