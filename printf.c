@@ -10,14 +10,14 @@
  */
 int _printf(const char *format, ...)
 {
-	int printed_chars;
+	int chelsana;
 
 	conver_t funct_list[] = {
-		{"c", p_char},
-		{"s", p_string},
-		{"%", p_percent},
-		{"d", p_integer},
-		{"i", p_integer},
+		{"c", print_char},
+		{"s", print_str},
+		{"%", print_percent},
+		{"d", print_int},
+		{"i", print_int},
 		{NULL, NULL}
 	};
 	va_list args;
@@ -25,8 +25,8 @@ int _printf(const char *format, ...)
 	if (format == NULL)
 		return (-1);
 	va_start(args, format);
-	/** call a parser function*/
-	printed_chars = parser(format, funct_list, args);
+
+	chelsana = parser(format, funct_list, args);
 	va_end(args);
-	return (printed_chars);
+	return (chelsana);
 }

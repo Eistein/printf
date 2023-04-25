@@ -11,119 +11,104 @@
 int print_number(va_list args)
 {
 	int n;
-	int check;
+	int test;
 	int len;
-	unsigned int num;
+	unsigned int a;
 
 	n = va_arg(args, int);
 
-	check = 1;
+	test = 1;
 	len = 0;
 	if (n < 0)
 	{
 	len += _putchar('-');
-	num = n * -1;
+	a = n * -1;
 	}
 	else
-	num = n;
-	for (; num / check > 9; )
-	check *= 10;
-	for (; check != 0; )
+	a = n;
+	for (; a / test > 9; )
+	test *= 10;
+	for (; test != 0; )
 	{
-	len += _putchar('0' + num / check);
-	num %= check;
-	check /= 10;
+	len += _putchar('0' + a / test);
+	a %= test;
+	test /= 10;
 	}
 	return (len);
 }
 /**
- * print_unsgined_number - Prints unsigned integer numbers
+ * print_unsigned - Prints unsigned integer numbers
  *
  * @n: Unsigned integer to be printed
  *
  * Return: Number of digits printed
  */
-int print_unsgined_number(unsigned int n)
+int print_unsigned(unsigned int n)
 {
-	int check;
+	int test;
 	int len;
-	unsigned int num;
+	unsigned int a;
 
-	check = 1;
+	test = 1;
 	len = 0;
-	num = n;
-	for (; num / check > 9; )
-	check *= 10;
-	for (; check != 0; )
+	a = n;
+	for (; a / test > 9; )
+	test *= 10;
+	for (; test != 0; )
 	{
-	len += _putchar('0' + num / check);
-	num %= check;
-	check /= 10;
+	len += _putchar('0' + a / test);
+	a %= test;
+	test /= 10;
 	}
 	return (len);
 }
 /**
- * p_char - Prints a character
+ * print_char - Prints a character
  *
  * @args: argument list containing character to be printed
  *
  * Return: Number of characters printed
  */
-int p_char(va_list args)
+int print_char(va_list args)
 {
-	char value;
+	char val;
 
-	value = va_arg(args, int);
+	val = va_arg(args, int);
 
-	_putchar(value);
+	_putchar(val);
 
 	return (1);
 }
 /**
- * p_string - Prints a string
+ * print_str - Prints a string
  *
  * @args: argument list containing string to be printed
  *
  * Return: Number of characters printed
  */
-int p_string(va_list args)
+int print_str(va_list args)
 {
-	int i;
-	const char *s;
+	int j;
+	const char *ptr;
 
-	s = va_arg(args, const char *);
+	ptr = va_arg(args, const char *);
 
-	if (s == NULL)
-	s = "(null)";
+	if (ptr == NULL)
+	ptr = "(null)";
 
-	for (i = 0; s[i] != '\0'; i++)
-	_putchar(s[i]);
-	return (i);
+	for (j = 0; ptr[j] != '\0'; j++)
+	_putchar(ptr[j]);
+	return (j);
 }
 /**
- * p_percent - Prints a percent sign
+ * print_percent - Prints a percent sign
  *
  * @args: Unused argument list
  *
  * Return: Number of characters printed
  */
-int p_percent(__attribute__((unused)) va_list args)
+int print_percent(__attribute__((unused)) va_list args)
 {
 	_putchar('%');
 	return (1);
-}
-/**
- * p_integer - Prints integer numbers
- *
- * @args: argument list containing integer to be printed
- *
- * Return: Number of digits printed
- */
-int p_integer(va_list args)
-{
-	int n;
-
-	n = print_number(args);
-	return (n);
-
 }
